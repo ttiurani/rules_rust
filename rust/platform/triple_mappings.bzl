@@ -25,6 +25,7 @@ SUPPORTED_T2_PLATFORM_TRIPLES = [
     "aarch64-apple-ios-sim",
     "aarch64-linux-android",
     "aarch64-unknown-linux-gnu",
+    "arm-linux-androideabi",
     "arm-unknown-linux-gnueabi",
     "armv7-unknown-linux-gnueabi",
     "i686-linux-android",
@@ -69,6 +70,7 @@ _CPU_ARCH_TO_BUILTIN_PLAT_SUFFIX = {
 # Systems that map to a "@platforms//os entry
 _SYSTEM_TO_BUILTIN_SYS_SUFFIX = {
     "android": "android",
+    "androideabi": "android",
     "bitrig": None,
     "darwin": "osx",
     "dragonfly": None,
@@ -89,6 +91,7 @@ _SYSTEM_TO_BUILTIN_SYS_SUFFIX = {
 
 _SYSTEM_TO_BINARY_EXT = {
     "android": "",
+    "androideabi": "",
     "darwin": "",
     "eabi": "",
     "emscripten": ".js",
@@ -106,6 +109,7 @@ _SYSTEM_TO_BINARY_EXT = {
 
 _SYSTEM_TO_STATICLIB_EXT = {
     "android": ".a",
+    "androideabi": ".a",
     "darwin": ".a",
     "eabi": ".a",
     "emscripten": ".js",
@@ -120,6 +124,7 @@ _SYSTEM_TO_STATICLIB_EXT = {
 
 _SYSTEM_TO_DYLIB_EXT = {
     "android": ".so",
+    "androideabi": ".so",
     "darwin": ".dylib",
     "eabi": ".so",
     "emscripten": ".js",
@@ -137,6 +142,7 @@ _SYSTEM_TO_STDLIB_LINKFLAGS = {
     # NOTE: Rust stdlib `build.rs` treats android as a subset of linux, rust rules treat android
     # as its own system.
     "android": ["-ldl", "-llog", "-lgcc"],
+    "androideabi": ["-ldl", "-llog", "-lgcc"],
     "bitrig": [],
     # TODO(gregbowyer): If rust stdlib is compiled for cloudabi with the backtrace feature it
     # includes `-lunwind` but this might not actually be required.
