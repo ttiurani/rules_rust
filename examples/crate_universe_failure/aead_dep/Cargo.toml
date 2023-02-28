@@ -1,0 +1,9 @@
+[lib]
+path = "src/lib.rs"
+
+[package]
+name = "aead_dep"
+version = "0.0.1"
+
+[dependencies]
+aead = { version = "0.5.1", features = ["getrandom"] }

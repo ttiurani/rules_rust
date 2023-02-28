@@ -1,0 +1,9 @@
+[lib]
+path = "src/lib.rs"
+
+[package]
+name = "age_dep"
+version = "0.0.1"
+
+[dependencies]
+age = "0.9.0"

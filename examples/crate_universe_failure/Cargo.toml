@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "aead_dep",
+    # TODO: If this is commented with below change and also change in WORKSPACE.bazel, "cargo generate-lockfile && CARGO_BAZEL_REPIN=true bazel build //aead_dep:aead_dep" succeeds
+    "age_dep",
+]
+
+excluded = [
+    # TODO: ^ and this uncommented
+    # "age_dep",
+]
