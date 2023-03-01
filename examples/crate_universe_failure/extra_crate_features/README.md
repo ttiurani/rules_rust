@@ -8,7 +8,7 @@ bazel build //extra_crate_features/wasm:wasm
 
 causes errors like `unresolved import 'crate::sys::IoSourceState'`. This is because the file
 `external/crate_index_extra_crate_features__tokio-1.25.0/BUILD.bazel`
-has the "net" feature in `crate_features` from the unrelated [net](extra_crate_features/net)
+has the "net" feature in `crate_features` from the unrelated [net](net/)
 crate.
 
 If the `net` crate is removed from WORKSPACE.bazel and Cargo.toml and then running the command
