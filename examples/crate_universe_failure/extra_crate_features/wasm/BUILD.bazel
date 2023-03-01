@@ -1,0 +1,20 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@crate_index_extra_crate_features//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_shared_library")
+load("@rules_rust//wasm_bindgen:wasm_bindgen.bzl", "rust_wasm_bindgen")
+
+rust_shared_library(
+    name = "wasm_shared",
+    deps = [
+        "//extra_crate_features/common:common",
+    ] + all_crate_deps(),
+    proc_macro_deps = all_crate_deps(proc_macro = True),
+    srcs = glob(["src/**"]),
+)
+
+rust_wasm_bindgen(
+    name = "wasm",
+    target = "bundler",
+    wasm_file = ":wasm_shared",
+)

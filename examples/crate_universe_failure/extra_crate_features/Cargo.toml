@@ -2,13 +2,14 @@
 resolver = "2"
 
 members = [
-    "aead_dep",
+    "common",
+    "wasm",
     # NB: If this is commented with below change and also change in WORKSPACE.bazel,
-    # "cargo generate-lockfile && CARGO_BAZEL_REPIN=true bazel build //missing_crate_features/aead_dep:aead_dep" succeeds
-    "age_dep",
+    # "cargo generate-lockfile && CARGO_BAZEL_REPIN=true bazel build //extra_crate_features/wasm:wasm" succeeds
+    "net",
 ]
 
 excluded = [
     # NB: ^ and this uncommented
-    # "age_dep",
+    # "net",
 ]

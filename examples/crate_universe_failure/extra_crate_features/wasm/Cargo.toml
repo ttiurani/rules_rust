@@ -1,0 +1,9 @@
+[lib]
+path = "src/lib.rs"
+
+[package]
+name = "wasm"
+version = "0.0.1"
+
+[dependencies]
+common = { path = "../common" }

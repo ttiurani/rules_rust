@@ -1,0 +1,10 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@crate_index_extra_crate_features//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_library")
+
+rust_library(
+    name = "common",
+    srcs = ["src/lib.rs"],
+    deps = all_crate_deps(),
+)
