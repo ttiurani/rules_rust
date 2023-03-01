@@ -24,24 +24,31 @@ crate_universe_dependencies(bootstrap = True)
 
 load("@rules_rust//crate_universe:defs.bzl", "crates_repository")
 
+##############################
+##
+## MISSING CRATE FEATURES
+##
+## https://github.com/bazelbuild/rules_rust/issues/1850
+##
+
 crates_repository(
-    name = "crate_index_crypto_common_failure",
-    cargo_lockfile = "//:Cargo.lock",
+    name = "crate_index_missing_crate_features",
+    cargo_lockfile = "//missing_crate_features:Cargo.lock",
     # `generator` is not necessary in official releases.
     # See load satement for `cargo_bazel_bootstrap`.
     generator = "@cargo_bazel_bootstrap//:cargo-bazel",
-    lockfile = "//:cargo-bazel-lock.json",
+    lockfile = "//missing_crate_features:cargo-bazel-lock.json",
     manifests = [
-        "//:Cargo.toml",
-        "//aead_dep:Cargo.toml",
+        "//missing_crate_features:Cargo.toml",
+        "//missing_crate_features/aead_dep:Cargo.toml",
         # TODO: If this is commented, and similar changes made in Cargo.toml, "cargo generate-lockfile && CARGO_BAZEL_REPIN=true bazel build //aead_dep:aead_dep" succeeds
-        "//age_dep:Cargo.toml",
+        "//missing_crate_features/age_dep:Cargo.toml",
     ],
 )
 
 load(
-    "@crate_index_crypto_common_failure//:defs.bzl",
-    crypto_common_failure_crate_repositories = "crate_repositories",
+    "@crate_index_missing_crate_features//:defs.bzl",
+    missing_crate_features_crate_repositories = "crate_repositories",
 )
 
-crypto_common_failure_crate_repositories()
+missing_crate_features_crate_repositories()

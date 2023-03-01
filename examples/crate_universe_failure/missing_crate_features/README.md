@@ -3,20 +3,20 @@
 Running:
 
 ```bash
-cargo generate-lockfile && CARGO_BAZEL_REPIN=true bazel build //aead_dep:aead_dep
+cargo generate-lockfile && CARGO_BAZEL_REPIN=true bazel build //missing_crate_features/aead_dep:aead_dep
 ```
 
 causes `unresolved import 'crypto_common::rand_core'`. This is because the file
-`external/crate_index_crypto_common_failure__crypto-common-0.1.6/BUILD.bazel`
+`external/crate_index_missing_crate_features__crypto-common-0.1.6/BUILD.bazel`
 has invalid `crate_features`:
 
 ```starlark
 rust_library(
     name = "crypto_common",
     deps = [
-        "@crate_index_crypto_common_failure__generic-array-0.14.6//:generic_array",
-        "@crate_index_crypto_common_failure__rand_core-0.6.4//:rand_core",
-        "@crate_index_crypto_common_failure__typenum-1.16.0//:typenum",
+        "@crate_index_missing_crate_features__generic-array-0.14.6//:generic_array",
+        "@crate_index_missing_crate_features__rand_core-0.6.4//:rand_core",
+        "@crate_index_missing_crate_features__typenum-1.16.0//:typenum",
     ],
     compile_data = glob(
         include = ["**"],
@@ -53,9 +53,9 @@ above command is run again, the build passes, because `crate_features` are corre
 rust_library(
     name = "crypto_common",
     deps = [
-        "@crate_index_crypto_common_failure__generic-array-0.14.6//:generic_array",
-        "@crate_index_crypto_common_failure__rand_core-0.6.4//:rand_core",
-        "@crate_index_crypto_common_failure__typenum-1.16.0//:typenum",
+        "@crate_index_missing_crate_features__generic-array-0.14.6//:generic_array",
+        "@crate_index_missing_crate_features__rand_core-0.6.4//:rand_core",
+        "@crate_index_missing_crate_features__typenum-1.16.0//:typenum",
     ],
     compile_data = glob(
         include = ["**"],

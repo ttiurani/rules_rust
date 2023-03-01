@@ -1,4 +1,4 @@
-load("@crate_index_crypto_common_failure//:defs.bzl", "all_crate_deps")
+load("@crate_index_missing_crate_features//:defs.bzl", "all_crate_deps")
 load("@rules_rust//rust:defs.bzl", "rust_library")
 
 package(default_visibility = ["//visibility:public"])
