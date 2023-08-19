@@ -3,7 +3,7 @@
 Running:
 
 ```bash
-bazel build //serde_dorive:main
+bazel build //serde_derive:main
 ```
 
 works on OSX but fails on Linux:
