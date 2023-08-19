@@ -5,11 +5,6 @@ local_repository(
     path = "../../",
 )
 
-local_repository(
-    name = "rules_rust",
-    path = "../../",
-)
-
 load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_register_toolchains")
 
 rules_rust_dependencies()
@@ -84,3 +79,27 @@ load(
 )
 
 extra_crate_features_crate_repositories()
+
+##############################
+##
+## SERDE DERIVE FAILURE
+##
+## https://github.com/bazelbuild/rules_rust/issues/2071
+##
+
+crates_repository(
+    name = "crate_index_serde_derive",
+    cargo_lockfile = "//serde_derive:Cargo.lock",
+    generator = "@cargo_bazel_bootstrap//:cargo-bazel",
+    lockfile = "//serde_derive:cargo-bazel-lock.json",
+    manifests = [
+        "//serde_derive:Cargo.toml",
+    ],
+)
+
+load(
+    "@crate_index_serde_derive//:defs.bzl",
+    serde_derive_crate_repositories = "crate_repositories",
+)
+
+serde_derive_crate_repositories()

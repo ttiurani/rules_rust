@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+load("@crate_index_serde_derive//:defs.bzl", "all_crate_deps")
+
+package(default_visibility = ["//visibility:public"])
+
+rust_binary(
+    name = "main",
+    srcs = [
+        "src/main.rs",
+    ],
+    deps = all_crate_deps(),
+)
