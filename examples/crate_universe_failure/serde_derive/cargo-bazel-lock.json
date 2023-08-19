@@ -1,6 +1,49 @@
 {
-  "checksum": "7370f3142805b71780b26969979cf0e9f1760af0a58722285fda7c94c4d8a656",
+  "checksum": "f00f8823d850778984ba3b5342acf4aa3b26e25db21e8fb09d6f691096362e2a",
   "crates": {
+    "direct-cargo-bazel-deps 0.0.1": {
+      "name": "direct-cargo-bazel-deps",
+      "version": "0.0.1",
+      "repository": null,
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "direct_cargo_bazel_deps",
+            "crate_root": ".direct_cargo_bazel_deps.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "direct_cargo_bazel_deps",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "serde 1.0.183",
+              "target": "serde"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "proc_macro_deps": {
+          "common": [
+            {
+              "id": "serde_derive 1.0.183",
+              "target": "serde_derive"
+            }
+          ],
+          "selects": {}
+        },
+        "version": "0.0.1"
+      },
+      "license": null
+    },
     "proc-macro2 1.0.66": {
       "name": "proc-macro2",
       "version": "1.0.66",
@@ -148,8 +191,6 @@
         "crate_features": {
           "common": [
             "default",
-            "derive",
-            "serde_derive",
             "std"
           ],
           "selects": {}
@@ -164,15 +205,6 @@
           "selects": {}
         },
         "edition": "2018",
-        "proc_macro_deps": {
-          "common": [
-            {
-              "id": "serde_derive 1.0.183",
-              "target": "serde_derive"
-            }
-          ],
-          "selects": {}
-        },
         "version": "1.0.183"
       },
       "build_script_attrs": {
@@ -236,30 +268,6 @@
         "version": "1.0.183"
       },
       "license": "MIT OR Apache-2.0"
-    },
-    "serde_derive_failure 0.0.1": {
-      "name": "serde_derive_failure",
-      "version": "0.0.1",
-      "repository": null,
-      "targets": [],
-      "library_target_name": null,
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "deps": {
-          "common": [
-            {
-              "id": "serde 1.0.183",
-              "target": "serde"
-            }
-          ],
-          "selects": {}
-        },
-        "edition": "2021",
-        "version": "0.0.1"
-      },
-      "license": null
     },
     "syn 2.0.29": {
       "name": "syn",
@@ -353,7 +361,7 @@
   },
   "binary_crates": [],
   "workspace_members": {
-    "serde_derive_failure 0.0.1": "serde_derive"
+    "direct-cargo-bazel-deps 0.0.1": ""
   },
   "conditions": {
     "cfg(not(all(target_arch = \"x86_64\", target_os = \"linux\", target_env = \"gnu\")))": [

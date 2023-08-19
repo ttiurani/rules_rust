@@ -8,5 +8,6 @@ rust_binary(
     srcs = [
         "src/main.rs",
     ],
-    deps = all_crate_deps(),
+    proc_macro_deps = ["@crate_index_serde_derive//:serde_derive"],
+    deps = ["@crate_index_serde_derive//:serde"],
 )

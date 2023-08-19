@@ -1,7 +1,0 @@
-[package]
-name = "serde_derive_failure"
-version = "0.0.1"
-edition = "2021"
-
-[dependencies]
-serde = { version = "1.0.183", features = ["derive"] }

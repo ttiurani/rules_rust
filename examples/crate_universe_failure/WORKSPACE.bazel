@@ -17,7 +17,7 @@ load("@rules_rust//crate_universe:repositories.bzl", "crate_universe_dependencie
 
 crate_universe_dependencies(bootstrap = True)
 
-load("@rules_rust//crate_universe:defs.bzl", "crates_repository")
+load("@rules_rust//crate_universe:defs.bzl", "crate", "crates_repository")
 
 ##############################
 ##
@@ -92,9 +92,10 @@ crates_repository(
     cargo_lockfile = "//serde_derive:Cargo.lock",
     generator = "@cargo_bazel_bootstrap//:cargo-bazel",
     lockfile = "//serde_derive:cargo-bazel-lock.json",
-    manifests = [
-        "//serde_derive:Cargo.toml",
-    ],
+    packages = {
+        "serde": crate.spec(version = "1.0.183"),
+        "serde_derive": crate.spec(version = "1.0.183"),
+    },
 )
 
 load(
