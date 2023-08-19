@@ -1,5 +1,5 @@
 {
-  "checksum": "f00f8823d850778984ba3b5342acf4aa3b26e25db21e8fb09d6f691096362e2a",
+  "checksum": "72b75023368e7dd26b844a0e513d537219f122f70a651e00f392c13b198abb29",
   "crates": {
     "direct-cargo-bazel-deps 0.0.1": {
       "name": "direct-cargo-bazel-deps",
@@ -78,13 +78,6 @@
         "compile_data_glob": [
           "**"
         ],
-        "crate_features": {
-          "common": [
-            "default",
-            "proc-macro"
-          ],
-          "selects": {}
-        },
         "deps": {
           "common": [
             {
@@ -133,13 +126,6 @@
         "compile_data_glob": [
           "**"
         ],
-        "crate_features": {
-          "common": [
-            "default",
-            "proc-macro"
-          ],
-          "selects": {}
-        },
         "deps": {
           "common": [
             {
@@ -294,18 +280,6 @@
         "compile_data_glob": [
           "**"
         ],
-        "crate_features": {
-          "common": [
-            "clone-impls",
-            "default",
-            "derive",
-            "parsing",
-            "printing",
-            "proc-macro",
-            "quote"
-          ],
-          "selects": {}
-        },
         "deps": {
           "common": [
             {
