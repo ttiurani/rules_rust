@@ -21,3 +21,7 @@ error: proc-macro derive panicked
 This happens despite the merge of PR: https://github.com/bazelbuild/rules_rust/pull/2097
 
 Issue: https://github.com/bazelbuild/rules_rust/issues/2071
+
+## Solution
+
+This got fixed when [serde v1.0.84](https://github.com/serde-rs/serde/releases/tag/v1.0.184) removed prebuilt binaries.
