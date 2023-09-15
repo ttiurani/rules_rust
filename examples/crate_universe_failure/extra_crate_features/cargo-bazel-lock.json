@@ -1,19 +1,19 @@
 {
-  "checksum": "7c739b1ae3c672a4d73ea4a5e3510699e3e09da5bed279df9ea60d41d1ae287f",
+  "checksum": "de239efc95ab0eb5a1e3f4f5440c4af4e183c11758690004be4810c0a0b49338",
   "crates": {
-    "autocfg 1.1.0": {
-      "name": "autocfg",
-      "version": "1.1.0",
+    "addr2line 0.21.0": {
+      "name": "addr2line",
+      "version": "0.21.0",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/autocfg/1.1.0/download",
-          "sha256": "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
+          "url": "https://crates.io/api/v1/crates/addr2line/0.21.0/download",
+          "sha256": "8a30b2e23b9e17a9f90641c7ab1549cd9b44f296d3ccbf309d2863cfe398a0cb"
         }
       },
       "targets": [
         {
           "Library": {
-            "crate_name": "autocfg",
+            "crate_name": "addr2line",
             "crate_root": "src/lib.rs",
             "srcs": [
               "**/*.rs"
@@ -21,15 +21,184 @@
           }
         }
       ],
-      "library_target_name": "autocfg",
+      "library_target_name": "addr2line",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "gimli 0.28.0",
+              "target": "gimli"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "version": "0.21.0"
+      },
+      "license": "Apache-2.0 OR MIT"
+    },
+    "adler 1.0.2": {
+      "name": "adler",
+      "version": "1.0.2",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/adler/1.0.2/download",
+          "sha256": "f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "adler",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "adler",
       "common_attrs": {
         "compile_data_glob": [
           "**"
         ],
         "edition": "2015",
-        "version": "1.1.0"
+        "version": "1.0.2"
       },
-      "license": "Apache-2.0 OR MIT"
+      "license": "0BSD OR MIT OR Apache-2.0"
+    },
+    "backtrace 0.3.69": {
+      "name": "backtrace",
+      "version": "0.3.69",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/backtrace/0.3.69/download",
+          "sha256": "2089b7e3f35b9dd2d0ed921ead4f6d318c27680d4a5bd167b3ee120edb105837"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "backtrace",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        },
+        {
+          "BuildScript": {
+            "crate_name": "build_script_build",
+            "crate_root": "build.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "backtrace",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "backtrace 0.3.69",
+              "target": "build_script_build"
+            },
+            {
+              "id": "cfg-if 1.0.0",
+              "target": "cfg_if"
+            },
+            {
+              "id": "rustc-demangle 0.1.23",
+              "target": "rustc_demangle"
+            }
+          ],
+          "selects": {
+            "cfg(not(all(windows, target_env = \"msvc\", not(target_vendor = \"uwp\"))))": [
+              {
+                "id": "addr2line 0.21.0",
+                "target": "addr2line"
+              },
+              {
+                "id": "libc 0.2.148",
+                "target": "libc"
+              },
+              {
+                "id": "miniz_oxide 0.7.1",
+                "target": "miniz_oxide"
+              },
+              {
+                "id": "object 0.32.1",
+                "target": "object"
+              }
+            ]
+          }
+        },
+        "edition": "2018",
+        "version": "0.3.69"
+      },
+      "build_script_attrs": {
+        "data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "cc 1.0.83",
+              "target": "cc"
+            }
+          ],
+          "selects": {}
+        }
+      },
+      "license": "MIT OR Apache-2.0"
+    },
+    "cc 1.0.83": {
+      "name": "cc",
+      "version": "1.0.83",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/cc/1.0.83/download",
+          "sha256": "f1174fb0b6ec23863f8b971027804a42614e347eafb0a95bf0b12cdae21fc4d0"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "cc",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "cc",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [],
+          "selects": {
+            "cfg(unix)": [
+              {
+                "id": "libc 0.2.148",
+                "target": "libc"
+              }
+            ]
+          }
+        },
+        "edition": "2018",
+        "version": "1.0.83"
+      },
+      "license": "MIT OR Apache-2.0"
     },
     "cfg-if 1.0.0": {
       "name": "cfg-if",
@@ -84,7 +253,7 @@
         "deps": {
           "common": [
             {
-              "id": "tokio 1.25.0",
+              "id": "tokio 1.32.0",
               "target": "tokio"
             }
           ],
@@ -95,13 +264,43 @@
       },
       "license": null
     },
-    "libc 0.2.139": {
-      "name": "libc",
-      "version": "0.2.139",
+    "gimli 0.28.0": {
+      "name": "gimli",
+      "version": "0.28.0",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/libc/0.2.139/download",
-          "sha256": "201de327520df007757c1f0adce6e827fe8562fbc28bfd9c15571c66ca1f5f79"
+          "url": "https://crates.io/api/v1/crates/gimli/0.28.0/download",
+          "sha256": "6fb8d784f27acf97159b40fc4db5ecd8aa23b9ad5ef69cdd136d3bc80665f0c0"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "gimli",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "gimli",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "0.28.0"
+      },
+      "license": "MIT OR Apache-2.0"
+    },
+    "libc 0.2.148": {
+      "name": "libc",
+      "version": "0.2.148",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/libc/0.2.148/download",
+          "sha256": "9cdc71e17332e86d2e1d38c1f99edcb6288ee11b815fb1a4b049eaa2114d369b"
         }
       },
       "targets": [
@@ -139,14 +338,14 @@
         "deps": {
           "common": [
             {
-              "id": "libc 0.2.139",
+              "id": "libc 0.2.148",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2015",
-        "version": "0.2.139"
+        "version": "0.2.148"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -155,36 +354,57 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "log 0.4.17": {
-      "name": "log",
-      "version": "0.4.17",
+    "memchr 2.6.3": {
+      "name": "memchr",
+      "version": "2.6.3",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/log/0.4.17/download",
-          "sha256": "abb12e687cfb44aa40f41fc3978ef76448f9b6038cad6aef4259d3c095a2382e"
+          "url": "https://crates.io/api/v1/crates/memchr/2.6.3/download",
+          "sha256": "8f232d6ef707e1956a43342693d2a31e72989554d58299d7a88738cc95b0d35c"
         }
       },
       "targets": [
         {
           "Library": {
-            "crate_name": "log",
+            "crate_name": "memchr",
             "crate_root": "src/lib.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        },
-        {
-          "BuildScript": {
-            "crate_name": "build_script_build",
-            "crate_root": "build.rs",
             "srcs": [
               "**/*.rs"
             ]
           }
         }
       ],
-      "library_target_name": "log",
+      "library_target_name": "memchr",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2021",
+        "version": "2.6.3"
+      },
+      "license": "Unlicense OR MIT"
+    },
+    "miniz_oxide 0.7.1": {
+      "name": "miniz_oxide",
+      "version": "0.7.1",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/miniz_oxide/0.7.1/download",
+          "sha256": "e7810e0be55b428ada41041c41f32c9f1a42817901b4ccf45fa3d4b6561e74c7"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "miniz_oxide",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "miniz_oxide",
       "common_attrs": {
         "compile_data_glob": [
           "**"
@@ -192,33 +412,24 @@
         "deps": {
           "common": [
             {
-              "id": "cfg-if 1.0.0",
-              "target": "cfg_if"
-            },
-            {
-              "id": "log 0.4.17",
-              "target": "build_script_build"
+              "id": "adler 1.0.2",
+              "target": "adler"
             }
           ],
           "selects": {}
         },
-        "edition": "2015",
-        "version": "0.4.17"
+        "edition": "2018",
+        "version": "0.7.1"
       },
-      "build_script_attrs": {
-        "data_glob": [
-          "**"
-        ]
-      },
-      "license": "MIT OR Apache-2.0"
+      "license": "MIT OR Zlib OR Apache-2.0"
     },
-    "mio 0.8.6": {
+    "mio 0.8.8": {
       "name": "mio",
-      "version": "0.8.6",
+      "version": "0.8.8",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/mio/0.8.6/download",
-          "sha256": "5b9d9a46eff5b4ff64b45a9e316a6d1e0bc719ef429cbec4dc630684212bfdf9"
+          "url": "https://crates.io/api/v1/crates/mio/0.8.8/download",
+          "sha256": "927a765cd3fc26206e66b296465fa9d3e5ab003e651c1b3c060e7956d96b19d2"
         }
       },
       "targets": [
@@ -239,7 +450,6 @@
         ],
         "crate_features": {
           "common": [
-            "default",
             "net",
             "os-ext",
             "os-poll"
@@ -247,16 +457,11 @@
           "selects": {}
         },
         "deps": {
-          "common": [
-            {
-              "id": "log 0.4.17",
-              "target": "log"
-            }
-          ],
+          "common": [],
           "selects": {
             "cfg(target_os = \"wasi\")": [
               {
-                "id": "libc 0.2.139",
+                "id": "libc 0.2.148",
                 "target": "libc"
               },
               {
@@ -266,20 +471,20 @@
             ],
             "cfg(unix)": [
               {
-                "id": "libc 0.2.139",
+                "id": "libc 0.2.148",
                 "target": "libc"
               }
             ],
             "cfg(windows)": [
               {
-                "id": "windows-sys 0.45.0",
+                "id": "windows-sys 0.48.0",
                 "target": "windows_sys"
               }
             ]
           }
         },
         "edition": "2018",
-        "version": "0.8.6"
+        "version": "0.8.8"
       },
       "license": "MIT"
     },
@@ -306,7 +511,7 @@
         "deps": {
           "common": [
             {
-              "id": "tokio 1.25.0",
+              "id": "tokio 1.32.0",
               "target": "tokio"
             }
           ],
@@ -317,13 +522,52 @@
       },
       "license": null
     },
-    "pin-project-lite 0.2.9": {
-      "name": "pin-project-lite",
-      "version": "0.2.9",
+    "object 0.32.1": {
+      "name": "object",
+      "version": "0.32.1",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/pin-project-lite/0.2.9/download",
-          "sha256": "e0a7ae3ac2f1173085d398531c705756c94a4c56843785df85a60c1a0afac116"
+          "url": "https://crates.io/api/v1/crates/object/0.32.1/download",
+          "sha256": "9cf5f9dd3933bd50a9e1f149ec995f39ae2c496d31fd772c1fd45ebc27e902b0"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "object",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "object",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "memchr 2.6.3",
+              "target": "memchr"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "version": "0.32.1"
+      },
+      "license": "Apache-2.0 OR MIT"
+    },
+    "pin-project-lite 0.2.13": {
+      "name": "pin-project-lite",
+      "version": "0.2.13",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/pin-project-lite/0.2.13/download",
+          "sha256": "8afb450f006bf6385ca15ef45d71d2288452bc3683ce2e2cacc0d18e4be60b58"
         }
       },
       "targets": [
@@ -343,17 +587,47 @@
           "**"
         ],
         "edition": "2018",
-        "version": "0.2.9"
+        "version": "0.2.13"
       },
       "license": "Apache-2.0 OR MIT"
     },
-    "socket2 0.4.7": {
-      "name": "socket2",
-      "version": "0.4.7",
+    "rustc-demangle 0.1.23": {
+      "name": "rustc-demangle",
+      "version": "0.1.23",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/socket2/0.4.7/download",
-          "sha256": "02e2d2db9033d13a1567121ddd7a095ee144db4e1ca1b1bda3419bc0da294ebd"
+          "url": "https://crates.io/api/v1/crates/rustc-demangle/0.1.23/download",
+          "sha256": "d626bb9dae77e28219937af045c257c28bfd3f69333c512553507f5f9798cb76"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "rustc_demangle",
+            "crate_root": "src/lib.rs",
+            "srcs": [
+              "**/*.rs"
+            ]
+          }
+        }
+      ],
+      "library_target_name": "rustc_demangle",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2015",
+        "version": "0.1.23"
+      },
+      "license": "MIT/Apache-2.0"
+    },
+    "socket2 0.5.4": {
+      "name": "socket2",
+      "version": "0.5.4",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/socket2/0.5.4/download",
+          "sha256": "4031e820eb552adee9295814c0ced9e5cf38ddf1e8b7d566d6de8e2538ea989e"
         }
       },
       "targets": [
@@ -383,30 +657,30 @@
           "selects": {
             "cfg(unix)": [
               {
-                "id": "libc 0.2.139",
+                "id": "libc 0.2.148",
                 "target": "libc"
               }
             ],
             "cfg(windows)": [
               {
-                "id": "winapi 0.3.9",
-                "target": "winapi"
+                "id": "windows-sys 0.48.0",
+                "target": "windows_sys"
               }
             ]
           }
         },
-        "edition": "2018",
-        "version": "0.4.7"
+        "edition": "2021",
+        "version": "0.5.4"
       },
       "license": "MIT OR Apache-2.0"
     },
-    "tokio 1.25.0": {
+    "tokio 1.32.0": {
       "name": "tokio",
-      "version": "1.25.0",
+      "version": "1.32.0",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/tokio/1.25.0/download",
-          "sha256": "c8e00990ebabbe4c14c08aca901caed183ecd5c09562a12c824bb53d3c3fd3af"
+          "url": "https://crates.io/api/v1/crates/tokio/1.32.0/download",
+          "sha256": "17ed6077ed6cd6c74735e21f37eb16dc3935f96878b1fe961074089cc80893f9"
         }
       },
       "targets": [
@@ -414,15 +688,6 @@
           "Library": {
             "crate_name": "tokio",
             "crate_root": "src/lib.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        },
-        {
-          "BuildScript": {
-            "crate_name": "build_script_build",
-            "crate_root": "build.rs",
             "srcs": [
               "**/*.rs"
             ]
@@ -458,61 +723,43 @@
         "deps": {
           "common": [
             {
-              "id": "mio 0.8.6",
+              "id": "mio 0.8.8",
               "target": "mio"
             },
             {
-              "id": "pin-project-lite 0.2.9",
+              "id": "pin-project-lite 0.2.13",
               "target": "pin_project_lite"
-            },
-            {
-              "id": "tokio 1.25.0",
-              "target": "build_script_build"
             }
           ],
           "selects": {
-            "cfg(docsrs)": [
+            "cfg(not(target_family = \"wasm\"))": [
               {
-                "id": "windows-sys 0.42.0",
-                "target": "windows_sys"
+                "id": "socket2 0.5.4",
+                "target": "socket2"
               }
             ],
-            "cfg(not(any(target_arch = \"wasm32\", target_arch = \"wasm64\")))": [
+            "cfg(tokio_taskdump)": [
               {
-                "id": "socket2 0.4.7",
-                "target": "socket2"
+                "id": "backtrace 0.3.69",
+                "target": "backtrace"
               }
             ],
             "cfg(unix)": [
               {
-                "id": "libc 0.2.139",
+                "id": "libc 0.2.148",
                 "target": "libc"
               }
             ],
             "cfg(windows)": [
               {
-                "id": "windows-sys 0.42.0",
+                "id": "windows-sys 0.48.0",
                 "target": "windows_sys"
               }
             ]
           }
         },
-        "edition": "2018",
-        "version": "1.25.0"
-      },
-      "build_script_attrs": {
-        "data_glob": [
-          "**"
-        ],
-        "deps": {
-          "common": [
-            {
-              "id": "autocfg 1.1.0",
-              "target": "autocfg"
-            }
-          ],
-          "selects": {}
-        }
+        "edition": "2021",
+        "version": "1.32.0"
       },
       "license": "MIT"
     },
@@ -578,314 +825,13 @@
       },
       "license": null
     },
-    "winapi 0.3.9": {
-      "name": "winapi",
-      "version": "0.3.9",
-      "repository": {
-        "Http": {
-          "url": "https://crates.io/api/v1/crates/winapi/0.3.9/download",
-          "sha256": "5c839a674fcd7a98952e593242ea400abe93992746761e38641405d28b00f419"
-        }
-      },
-      "targets": [
-        {
-          "Library": {
-            "crate_name": "winapi",
-            "crate_root": "src/lib.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        },
-        {
-          "BuildScript": {
-            "crate_name": "build_script_build",
-            "crate_root": "build.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        }
-      ],
-      "library_target_name": "winapi",
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "crate_features": {
-          "common": [
-            "handleapi",
-            "ws2ipdef",
-            "ws2tcpip"
-          ],
-          "selects": {}
-        },
-        "deps": {
-          "common": [
-            {
-              "id": "winapi 0.3.9",
-              "target": "build_script_build"
-            }
-          ],
-          "selects": {
-            "i686-pc-windows-gnu": [
-              {
-                "id": "winapi-i686-pc-windows-gnu 0.4.0",
-                "target": "winapi_i686_pc_windows_gnu"
-              }
-            ],
-            "x86_64-pc-windows-gnu": [
-              {
-                "id": "winapi-x86_64-pc-windows-gnu 0.4.0",
-                "target": "winapi_x86_64_pc_windows_gnu"
-              }
-            ]
-          }
-        },
-        "edition": "2015",
-        "version": "0.3.9"
-      },
-      "build_script_attrs": {
-        "data_glob": [
-          "**"
-        ]
-      },
-      "license": "MIT/Apache-2.0"
-    },
-    "winapi-i686-pc-windows-gnu 0.4.0": {
-      "name": "winapi-i686-pc-windows-gnu",
-      "version": "0.4.0",
-      "repository": {
-        "Http": {
-          "url": "https://crates.io/api/v1/crates/winapi-i686-pc-windows-gnu/0.4.0/download",
-          "sha256": "ac3b87c63620426dd9b991e5ce0329eff545bccbbb34f3be09ff6fb6ab51b7b6"
-        }
-      },
-      "targets": [
-        {
-          "Library": {
-            "crate_name": "winapi_i686_pc_windows_gnu",
-            "crate_root": "src/lib.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        },
-        {
-          "BuildScript": {
-            "crate_name": "build_script_build",
-            "crate_root": "build.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        }
-      ],
-      "library_target_name": "winapi_i686_pc_windows_gnu",
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "deps": {
-          "common": [
-            {
-              "id": "winapi-i686-pc-windows-gnu 0.4.0",
-              "target": "build_script_build"
-            }
-          ],
-          "selects": {}
-        },
-        "edition": "2015",
-        "version": "0.4.0"
-      },
-      "build_script_attrs": {
-        "data_glob": [
-          "**"
-        ]
-      },
-      "license": "MIT/Apache-2.0"
-    },
-    "winapi-x86_64-pc-windows-gnu 0.4.0": {
-      "name": "winapi-x86_64-pc-windows-gnu",
-      "version": "0.4.0",
-      "repository": {
-        "Http": {
-          "url": "https://crates.io/api/v1/crates/winapi-x86_64-pc-windows-gnu/0.4.0/download",
-          "sha256": "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
-        }
-      },
-      "targets": [
-        {
-          "Library": {
-            "crate_name": "winapi_x86_64_pc_windows_gnu",
-            "crate_root": "src/lib.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        },
-        {
-          "BuildScript": {
-            "crate_name": "build_script_build",
-            "crate_root": "build.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        }
-      ],
-      "library_target_name": "winapi_x86_64_pc_windows_gnu",
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "deps": {
-          "common": [
-            {
-              "id": "winapi-x86_64-pc-windows-gnu 0.4.0",
-              "target": "build_script_build"
-            }
-          ],
-          "selects": {}
-        },
-        "edition": "2015",
-        "version": "0.4.0"
-      },
-      "build_script_attrs": {
-        "data_glob": [
-          "**"
-        ]
-      },
-      "license": "MIT/Apache-2.0"
-    },
-    "windows-sys 0.42.0": {
+    "windows-sys 0.48.0": {
       "name": "windows-sys",
-      "version": "0.42.0",
+      "version": "0.48.0",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows-sys/0.42.0/download",
-          "sha256": "5a3e1820f08b8513f676f7ab6c1f99ff312fb97b553d30ff4dd86f9f15728aa7"
-        }
-      },
-      "targets": [
-        {
-          "Library": {
-            "crate_name": "windows_sys",
-            "crate_root": "src/lib.rs",
-            "srcs": [
-              "**/*.rs"
-            ]
-          }
-        }
-      ],
-      "library_target_name": "windows_sys",
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "crate_features": {
-          "common": [
-            "Win32",
-            "Win32_Foundation",
-            "Win32_Security",
-            "Win32_Storage",
-            "Win32_Storage_FileSystem",
-            "Win32_System",
-            "Win32_System_Pipes",
-            "Win32_System_SystemServices",
-            "default"
-          ],
-          "selects": {}
-        },
-        "deps": {
-          "common": [],
-          "selects": {
-            "aarch64-pc-windows-gnullvm": [
-              {
-                "id": "windows_aarch64_gnullvm 0.42.1",
-                "target": "windows_aarch64_gnullvm"
-              }
-            ],
-            "aarch64-pc-windows-msvc": [
-              {
-                "id": "windows_aarch64_msvc 0.42.1",
-                "target": "windows_aarch64_msvc"
-              }
-            ],
-            "aarch64-uwp-windows-msvc": [
-              {
-                "id": "windows_aarch64_msvc 0.42.1",
-                "target": "windows_aarch64_msvc"
-              }
-            ],
-            "i686-pc-windows-gnu": [
-              {
-                "id": "windows_i686_gnu 0.42.1",
-                "target": "windows_i686_gnu"
-              }
-            ],
-            "i686-pc-windows-msvc": [
-              {
-                "id": "windows_i686_msvc 0.42.1",
-                "target": "windows_i686_msvc"
-              }
-            ],
-            "i686-uwp-windows-gnu": [
-              {
-                "id": "windows_i686_gnu 0.42.1",
-                "target": "windows_i686_gnu"
-              }
-            ],
-            "i686-uwp-windows-msvc": [
-              {
-                "id": "windows_i686_msvc 0.42.1",
-                "target": "windows_i686_msvc"
-              }
-            ],
-            "x86_64-pc-windows-gnu": [
-              {
-                "id": "windows_x86_64_gnu 0.42.1",
-                "target": "windows_x86_64_gnu"
-              }
-            ],
-            "x86_64-pc-windows-gnullvm": [
-              {
-                "id": "windows_x86_64_gnullvm 0.42.1",
-                "target": "windows_x86_64_gnullvm"
-              }
-            ],
-            "x86_64-pc-windows-msvc": [
-              {
-                "id": "windows_x86_64_msvc 0.42.1",
-                "target": "windows_x86_64_msvc"
-              }
-            ],
-            "x86_64-uwp-windows-gnu": [
-              {
-                "id": "windows_x86_64_gnu 0.42.1",
-                "target": "windows_x86_64_gnu"
-              }
-            ],
-            "x86_64-uwp-windows-msvc": [
-              {
-                "id": "windows_x86_64_msvc 0.42.1",
-                "target": "windows_x86_64_msvc"
-              }
-            ]
-          }
-        },
-        "edition": "2018",
-        "version": "0.42.0"
-      },
-      "license": "MIT OR Apache-2.0"
-    },
-    "windows-sys 0.45.0": {
-      "name": "windows-sys",
-      "version": "0.45.0",
-      "repository": {
-        "Http": {
-          "url": "https://crates.io/api/v1/crates/windows-sys/0.45.0/download",
-          "sha256": "75283be5efb2831d37ea142365f009c02ec203cd29a3ebecbc093d52315b66d0"
+          "url": "https://crates.io/api/v1/crates/windows-sys/0.48.0/download",
+          "sha256": "677d2418bec65e3338edb076e806bc1ec15693c5d0104683f2efe857f61056a9"
         }
       },
       "targets": [
@@ -916,34 +862,34 @@
             "Win32_System",
             "Win32_System_IO",
             "Win32_System_Pipes",
+            "Win32_System_SystemServices",
+            "Win32_System_Threading",
             "Win32_System_WindowsProgramming",
             "default"
           ],
           "selects": {}
         },
         "deps": {
-          "common": [],
-          "selects": {
-            "cfg(not(windows_raw_dylib))": [
-              {
-                "id": "windows-targets 0.42.1",
-                "target": "windows_targets"
-              }
-            ]
-          }
+          "common": [
+            {
+              "id": "windows-targets 0.48.5",
+              "target": "windows_targets"
+            }
+          ],
+          "selects": {}
         },
         "edition": "2018",
-        "version": "0.45.0"
+        "version": "0.48.0"
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows-targets 0.42.1": {
+    "windows-targets 0.48.5": {
       "name": "windows-targets",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows-targets/0.42.1/download",
-          "sha256": "8e2522491fbfcd58cc84d47aeb2958948c4b8982e9a2d8a2a35bbaed431390e7"
+          "url": "https://crates.io/api/v1/crates/windows-targets/0.48.5/download",
+          "sha256": "9a2fa6e2155d7247be68c096456083145c183cbbbc2764150dda45a87197940c"
         }
       },
       "targets": [
@@ -967,90 +913,60 @@
           "selects": {
             "aarch64-pc-windows-gnullvm": [
               {
-                "id": "windows_aarch64_gnullvm 0.42.1",
+                "id": "windows_aarch64_gnullvm 0.48.5",
                 "target": "windows_aarch64_gnullvm"
               }
             ],
-            "aarch64-pc-windows-msvc": [
+            "cfg(all(target_arch = \"aarch64\", target_env = \"msvc\", not(windows_raw_dylib)))": [
               {
-                "id": "windows_aarch64_msvc 0.42.1",
+                "id": "windows_aarch64_msvc 0.48.5",
                 "target": "windows_aarch64_msvc"
               }
             ],
-            "aarch64-uwp-windows-msvc": [
+            "cfg(all(target_arch = \"x86\", target_env = \"gnu\", not(windows_raw_dylib)))": [
               {
-                "id": "windows_aarch64_msvc 0.42.1",
-                "target": "windows_aarch64_msvc"
-              }
-            ],
-            "i686-pc-windows-gnu": [
-              {
-                "id": "windows_i686_gnu 0.42.1",
+                "id": "windows_i686_gnu 0.48.5",
                 "target": "windows_i686_gnu"
               }
             ],
-            "i686-pc-windows-msvc": [
+            "cfg(all(target_arch = \"x86\", target_env = \"msvc\", not(windows_raw_dylib)))": [
               {
-                "id": "windows_i686_msvc 0.42.1",
+                "id": "windows_i686_msvc 0.48.5",
                 "target": "windows_i686_msvc"
               }
             ],
-            "i686-uwp-windows-gnu": [
+            "cfg(all(target_arch = \"x86_64\", target_env = \"gnu\", not(target_abi = \"llvm\"), not(windows_raw_dylib)))": [
               {
-                "id": "windows_i686_gnu 0.42.1",
-                "target": "windows_i686_gnu"
-              }
-            ],
-            "i686-uwp-windows-msvc": [
-              {
-                "id": "windows_i686_msvc 0.42.1",
-                "target": "windows_i686_msvc"
-              }
-            ],
-            "x86_64-pc-windows-gnu": [
-              {
-                "id": "windows_x86_64_gnu 0.42.1",
+                "id": "windows_x86_64_gnu 0.48.5",
                 "target": "windows_x86_64_gnu"
+              }
+            ],
+            "cfg(all(target_arch = \"x86_64\", target_env = \"msvc\", not(windows_raw_dylib)))": [
+              {
+                "id": "windows_x86_64_msvc 0.48.5",
+                "target": "windows_x86_64_msvc"
               }
             ],
             "x86_64-pc-windows-gnullvm": [
               {
-                "id": "windows_x86_64_gnullvm 0.42.1",
+                "id": "windows_x86_64_gnullvm 0.48.5",
                 "target": "windows_x86_64_gnullvm"
-              }
-            ],
-            "x86_64-pc-windows-msvc": [
-              {
-                "id": "windows_x86_64_msvc 0.42.1",
-                "target": "windows_x86_64_msvc"
-              }
-            ],
-            "x86_64-uwp-windows-gnu": [
-              {
-                "id": "windows_x86_64_gnu 0.42.1",
-                "target": "windows_x86_64_gnu"
-              }
-            ],
-            "x86_64-uwp-windows-msvc": [
-              {
-                "id": "windows_x86_64_msvc 0.42.1",
-                "target": "windows_x86_64_msvc"
               }
             ]
           }
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows_aarch64_gnullvm 0.42.1": {
+    "windows_aarch64_gnullvm 0.48.5": {
       "name": "windows_aarch64_gnullvm",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.42.1/download",
-          "sha256": "8c9864e83243fdec7fc9c5444389dcbbfd258f745e7853198f365e3c4968a608"
+          "url": "https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.48.5/download",
+          "sha256": "2b38e32f0abccf9987a4e3079dfb67dcd799fb61361e53e2882c3cbaf0d905d8"
         }
       },
       "targets": [
@@ -1081,14 +997,14 @@
         "deps": {
           "common": [
             {
-              "id": "windows_aarch64_gnullvm 0.42.1",
+              "id": "windows_aarch64_gnullvm 0.48.5",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -1097,13 +1013,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows_aarch64_msvc 0.42.1": {
+    "windows_aarch64_msvc 0.48.5": {
       "name": "windows_aarch64_msvc",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows_aarch64_msvc/0.42.1/download",
-          "sha256": "4c8b1b673ffc16c47a9ff48570a9d85e25d265735c503681332589af6253c6c7"
+          "url": "https://crates.io/api/v1/crates/windows_aarch64_msvc/0.48.5/download",
+          "sha256": "dc35310971f3b2dbbf3f0690a219f40e2d9afcf64f9ab7cc1be722937c26b4bc"
         }
       },
       "targets": [
@@ -1134,14 +1050,14 @@
         "deps": {
           "common": [
             {
-              "id": "windows_aarch64_msvc 0.42.1",
+              "id": "windows_aarch64_msvc 0.48.5",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -1150,13 +1066,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows_i686_gnu 0.42.1": {
+    "windows_i686_gnu 0.48.5": {
       "name": "windows_i686_gnu",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows_i686_gnu/0.42.1/download",
-          "sha256": "de3887528ad530ba7bdbb1faa8275ec7a1155a45ffa57c37993960277145d640"
+          "url": "https://crates.io/api/v1/crates/windows_i686_gnu/0.48.5/download",
+          "sha256": "a75915e7def60c94dcef72200b9a8e58e5091744960da64ec734a6c6e9b3743e"
         }
       },
       "targets": [
@@ -1187,14 +1103,14 @@
         "deps": {
           "common": [
             {
-              "id": "windows_i686_gnu 0.42.1",
+              "id": "windows_i686_gnu 0.48.5",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -1203,13 +1119,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows_i686_msvc 0.42.1": {
+    "windows_i686_msvc 0.48.5": {
       "name": "windows_i686_msvc",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows_i686_msvc/0.42.1/download",
-          "sha256": "bf4d1122317eddd6ff351aa852118a2418ad4214e6613a50e0191f7004372605"
+          "url": "https://crates.io/api/v1/crates/windows_i686_msvc/0.48.5/download",
+          "sha256": "8f55c233f70c4b27f66c523580f78f1004e8b5a8b659e05a4eb49d4166cca406"
         }
       },
       "targets": [
@@ -1240,14 +1156,14 @@
         "deps": {
           "common": [
             {
-              "id": "windows_i686_msvc 0.42.1",
+              "id": "windows_i686_msvc 0.48.5",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -1256,13 +1172,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows_x86_64_gnu 0.42.1": {
+    "windows_x86_64_gnu 0.48.5": {
       "name": "windows_x86_64_gnu",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows_x86_64_gnu/0.42.1/download",
-          "sha256": "c1040f221285e17ebccbc2591ffdc2d44ee1f9186324dd3e84e99ac68d699c45"
+          "url": "https://crates.io/api/v1/crates/windows_x86_64_gnu/0.48.5/download",
+          "sha256": "53d40abd2583d23e4718fddf1ebec84dbff8381c07cae67ff7768bbf19c6718e"
         }
       },
       "targets": [
@@ -1293,14 +1209,14 @@
         "deps": {
           "common": [
             {
-              "id": "windows_x86_64_gnu 0.42.1",
+              "id": "windows_x86_64_gnu 0.48.5",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -1309,13 +1225,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows_x86_64_gnullvm 0.42.1": {
+    "windows_x86_64_gnullvm 0.48.5": {
       "name": "windows_x86_64_gnullvm",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.42.1/download",
-          "sha256": "628bfdf232daa22b0d64fdb62b09fcc36bb01f05a3939e20ab73aaf9470d0463"
+          "url": "https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.48.5/download",
+          "sha256": "0b7b52767868a23d5bab768e390dc5f5c55825b6d30b86c844ff2dc7414044cc"
         }
       },
       "targets": [
@@ -1346,14 +1262,14 @@
         "deps": {
           "common": [
             {
-              "id": "windows_x86_64_gnullvm 0.42.1",
+              "id": "windows_x86_64_gnullvm 0.48.5",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -1362,13 +1278,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "windows_x86_64_msvc 0.42.1": {
+    "windows_x86_64_msvc 0.48.5": {
       "name": "windows_x86_64_msvc",
-      "version": "0.42.1",
+      "version": "0.48.5",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/windows_x86_64_msvc/0.42.1/download",
-          "sha256": "447660ad36a13288b1db4d4248e857b510e8c3a225c822ba4fb748c0aafecffd"
+          "url": "https://crates.io/api/v1/crates/windows_x86_64_msvc/0.48.5/download",
+          "sha256": "ed94fce61571a4006852b7389a063ab983c02eb1bb37b47f8272ce92d06d9538"
         }
       },
       "targets": [
@@ -1399,14 +1315,14 @@
         "deps": {
           "common": [
             {
-              "id": "windows_x86_64_msvc 0.42.1",
+              "id": "windows_x86_64_msvc 0.48.5",
               "target": "build_script_build"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.42.1"
+        "version": "0.48.5"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -1423,57 +1339,64 @@
     "wasm 0.0.1": "extra_crate_features/wasm"
   },
   "conditions": {
+    "aarch64-apple-darwin": [
+      "aarch64-apple-darwin"
+    ],
+    "aarch64-apple-ios": [
+      "aarch64-apple-ios"
+    ],
+    "aarch64-apple-ios-sim": [
+      "aarch64-apple-ios-sim"
+    ],
+    "aarch64-fuchsia": [
+      "aarch64-fuchsia"
+    ],
+    "aarch64-linux-android": [
+      "aarch64-linux-android"
+    ],
     "aarch64-pc-windows-gnullvm": [],
     "aarch64-pc-windows-msvc": [
       "aarch64-pc-windows-msvc"
     ],
-    "aarch64-uwp-windows-msvc": [],
-    "cfg(docsrs)": [],
-    "cfg(not(any(target_arch = \"wasm32\", target_arch = \"wasm64\")))": [
-      "aarch64-apple-darwin",
-      "aarch64-apple-ios",
-      "aarch64-apple-ios-sim",
-      "aarch64-fuchsia",
-      "aarch64-linux-android",
-      "aarch64-pc-windows-msvc",
-      "aarch64-unknown-linux-gnu",
-      "arm-unknown-linux-gnueabi",
-      "armv7-linux-androideabi",
-      "armv7-unknown-linux-gnueabi",
-      "i686-apple-darwin",
-      "i686-linux-android",
-      "i686-pc-windows-msvc",
-      "i686-unknown-freebsd",
-      "i686-unknown-linux-gnu",
-      "powerpc-unknown-linux-gnu",
-      "riscv32imc-unknown-none-elf",
-      "riscv64gc-unknown-none-elf",
-      "s390x-unknown-linux-gnu",
-      "thumbv7em-none-eabi",
-      "thumbv8m.main-none-eabi",
-      "x86_64-apple-darwin",
-      "x86_64-apple-ios",
-      "x86_64-fuchsia",
-      "x86_64-linux-android",
-      "x86_64-pc-windows-msvc",
-      "x86_64-unknown-freebsd",
-      "x86_64-unknown-linux-gnu",
-      "x86_64-unknown-none"
+    "aarch64-unknown-linux-gnu": [
+      "aarch64-unknown-linux-gnu"
     ],
-    "cfg(not(windows_raw_dylib))": [
+    "arm-unknown-linux-gnueabi": [
+      "arm-unknown-linux-gnueabi"
+    ],
+    "armv7-linux-androideabi": [
+      "armv7-linux-androideabi"
+    ],
+    "armv7-unknown-linux-gnueabi": [
+      "armv7-unknown-linux-gnueabi"
+    ],
+    "cfg(all(target_arch = \"aarch64\", target_env = \"msvc\", not(windows_raw_dylib)))": [
+      "aarch64-pc-windows-msvc"
+    ],
+    "cfg(all(target_arch = \"x86\", target_env = \"gnu\", not(windows_raw_dylib)))": [
+      "i686-unknown-linux-gnu"
+    ],
+    "cfg(all(target_arch = \"x86\", target_env = \"msvc\", not(windows_raw_dylib)))": [
+      "i686-pc-windows-msvc"
+    ],
+    "cfg(all(target_arch = \"x86_64\", target_env = \"gnu\", not(target_abi = \"llvm\"), not(windows_raw_dylib)))": [
+      "x86_64-unknown-linux-gnu"
+    ],
+    "cfg(all(target_arch = \"x86_64\", target_env = \"msvc\", not(windows_raw_dylib)))": [
+      "x86_64-pc-windows-msvc"
+    ],
+    "cfg(not(all(windows, target_env = \"msvc\", not(target_vendor = \"uwp\"))))": [
       "aarch64-apple-darwin",
       "aarch64-apple-ios",
       "aarch64-apple-ios-sim",
       "aarch64-fuchsia",
       "aarch64-linux-android",
-      "aarch64-pc-windows-msvc",
       "aarch64-unknown-linux-gnu",
       "arm-unknown-linux-gnueabi",
       "armv7-linux-androideabi",
       "armv7-unknown-linux-gnueabi",
       "i686-apple-darwin",
       "i686-linux-android",
-      "i686-pc-windows-msvc",
       "i686-unknown-freebsd",
       "i686-unknown-linux-gnu",
       "powerpc-unknown-linux-gnu",
@@ -1488,6 +1411,36 @@
       "x86_64-apple-ios",
       "x86_64-fuchsia",
       "x86_64-linux-android",
+      "x86_64-unknown-freebsd",
+      "x86_64-unknown-linux-gnu",
+      "x86_64-unknown-none"
+    ],
+    "cfg(not(target_family = \"wasm\"))": [
+      "aarch64-apple-darwin",
+      "aarch64-apple-ios",
+      "aarch64-apple-ios-sim",
+      "aarch64-fuchsia",
+      "aarch64-linux-android",
+      "aarch64-pc-windows-msvc",
+      "aarch64-unknown-linux-gnu",
+      "arm-unknown-linux-gnueabi",
+      "armv7-linux-androideabi",
+      "armv7-unknown-linux-gnueabi",
+      "i686-apple-darwin",
+      "i686-linux-android",
+      "i686-pc-windows-msvc",
+      "i686-unknown-freebsd",
+      "i686-unknown-linux-gnu",
+      "powerpc-unknown-linux-gnu",
+      "riscv32imc-unknown-none-elf",
+      "riscv64gc-unknown-none-elf",
+      "s390x-unknown-linux-gnu",
+      "thumbv7em-none-eabi",
+      "thumbv8m.main-none-eabi",
+      "x86_64-apple-darwin",
+      "x86_64-apple-ios",
+      "x86_64-fuchsia",
+      "x86_64-linux-android",
       "x86_64-pc-windows-msvc",
       "x86_64-unknown-freebsd",
       "x86_64-unknown-linux-gnu",
@@ -1496,6 +1449,7 @@
     "cfg(target_os = \"wasi\")": [
       "wasm32-wasi"
     ],
+    "cfg(tokio_taskdump)": [],
     "cfg(unix)": [
       "aarch64-apple-darwin",
       "aarch64-apple-ios",
@@ -1524,18 +1478,69 @@
       "i686-pc-windows-msvc",
       "x86_64-pc-windows-msvc"
     ],
-    "i686-pc-windows-gnu": [],
+    "i686-apple-darwin": [
+      "i686-apple-darwin"
+    ],
+    "i686-linux-android": [
+      "i686-linux-android"
+    ],
     "i686-pc-windows-msvc": [
       "i686-pc-windows-msvc"
     ],
-    "i686-uwp-windows-gnu": [],
-    "i686-uwp-windows-msvc": [],
-    "x86_64-pc-windows-gnu": [],
+    "i686-unknown-freebsd": [
+      "i686-unknown-freebsd"
+    ],
+    "i686-unknown-linux-gnu": [
+      "i686-unknown-linux-gnu"
+    ],
+    "powerpc-unknown-linux-gnu": [
+      "powerpc-unknown-linux-gnu"
+    ],
+    "riscv32imc-unknown-none-elf": [
+      "riscv32imc-unknown-none-elf"
+    ],
+    "riscv64gc-unknown-none-elf": [
+      "riscv64gc-unknown-none-elf"
+    ],
+    "s390x-unknown-linux-gnu": [
+      "s390x-unknown-linux-gnu"
+    ],
+    "thumbv7em-none-eabi": [
+      "thumbv7em-none-eabi"
+    ],
+    "thumbv8m.main-none-eabi": [
+      "thumbv8m.main-none-eabi"
+    ],
+    "wasm32-unknown-unknown": [
+      "wasm32-unknown-unknown"
+    ],
+    "wasm32-wasi": [
+      "wasm32-wasi"
+    ],
+    "x86_64-apple-darwin": [
+      "x86_64-apple-darwin"
+    ],
+    "x86_64-apple-ios": [
+      "x86_64-apple-ios"
+    ],
+    "x86_64-fuchsia": [
+      "x86_64-fuchsia"
+    ],
+    "x86_64-linux-android": [
+      "x86_64-linux-android"
+    ],
     "x86_64-pc-windows-gnullvm": [],
     "x86_64-pc-windows-msvc": [
       "x86_64-pc-windows-msvc"
     ],
-    "x86_64-uwp-windows-gnu": [],
-    "x86_64-uwp-windows-msvc": []
+    "x86_64-unknown-freebsd": [
+      "x86_64-unknown-freebsd"
+    ],
+    "x86_64-unknown-linux-gnu": [
+      "x86_64-unknown-linux-gnu"
+    ],
+    "x86_64-unknown-none": [
+      "x86_64-unknown-none"
+    ]
   }
 }
